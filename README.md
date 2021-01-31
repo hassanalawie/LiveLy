@@ -1,24 +1,63 @@
-# Getting Started with Create React App
+# Lively
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br />
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template%22%3E
+    <img src="assets/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Live.ly</h3>
+
+  <p align="center">
+    Changing the way we engage audiences.
+</p>
+
+## About The Project
+
+Upgrade from your traditional methods and keep viewership at all time highs with this fun trivia app
+
+Here's why our app is the optimal choice for your television production workflow:
+* Generate Questions on Web Dashboard
+* Manage All Daily Events 
+* Push Trivia to Users through App
+
+### Installation (mobile)
+
+1. Clone the repo
+   
+   git clone https://github.com/your_username_/Project-Name.git
+   
+
+3. Install NPM packages
+   
+   npm install
+   
 
 
-## `Description`
 
-In the project directory, you can run the producer-side website for the live.ly app. This allows the producers to set events as Live and generate quesitons for the trivia games
+### Installation (web-app)
 
-### `Getting Started`
+1. Clone the repo
+   
+   ```git clone https://github.com/hassanalawie/LiveLy.git```
+   
 
-npm install
+3. Install NPM packages
+   
+  ```
+  npm install
+  ```
+   
 
-### `Prerequisites`
-
-npm
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. Run Npm 
+   
+   ```npm start```
+   
 
 
+## Video Link
+
+VIdeo Link: https://drive.google.com/file/d/1UqTonXkkxi4dau_8_H2WibSOJ_19UA1_/view?usp=sharing
+
+
+## Contact
