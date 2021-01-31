@@ -58,7 +58,14 @@ Here's why our app is the optimal choice for your television production workflow
 
 ## Video Link
 
-VIdeo Link: https://drive.google.com/file/d/1UqTonXkkxi4dau_8_H2WibSOJ_19UA1_/view?usp=sharing
+Video Link: https://drive.google.com/file/d/1UqTonXkkxi4dau_8_H2WibSOJ_19UA1_/view?usp=sharing
 
 
 ## Contact
+Eeshwar Chockalingam - eshchock1@gmail.com
+
+Vansh Sethi - vanshsethi17@gmail.com
+
+Hassan Alawie - hassan.alawie10@gmail.com
+
+Nushaine Ferdinand - nushainef@gmail.com'
