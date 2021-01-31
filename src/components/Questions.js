@@ -8,16 +8,16 @@ let styles = {
 }
 
 function genNum(lim) {
-  return Math.floor((Math.random() * 70) + 1);
+  return Math.floor((Math.random() * lim) + 1);
 }
 
-function pushFirebase(qu, all) {
+function pushFirebase(qu, all, num) {
   const ref = firebase.database().ref('CurrentEvent/Questions');
   let a = all.length - 1
-  let b = Math.floor((Math.random() * 70) + 1);
+  let b = Math.floor((Math.random() * num) + 1);
   let p = []
   while (p.length <= 3) {
-    let c = genNum(a)
+    let c = genNum(num)
     if (!p.includes(c)) {
       p.push(c)
     }
@@ -45,7 +45,6 @@ function pushFirebase(qu, all) {
 
 var b = 0
 function Questions(props) {
-
   
   return (
     <div style={{display: "flex", flexDirection: "row", flex:1}}>
@@ -59,7 +58,7 @@ function Questions(props) {
             
              shuffle(props.location.questionProps.questions).slice(0, props.location.numberOfQuestions).map(
                     e => {
-                        {pushFirebase(e, props.location.questionProps.questions)}
+                        {pushFirebase(e, props.location.questionProps.questions, props.location.sport)}
                         {b=1}
 
                         return( 
@@ -80,7 +79,7 @@ function Questions(props) {
 
         <div style={{backgroundColor: "#FDB531",  width: "30vw", height: "40vh", position:"-webkit-sticky", top:0}}>
             <div style={{marginLeft: "3.5rem", marginTop: "4rem"}}>
-                <b style={{color: "white", fontSize: "3.2rem"}}>Raptors @<br />Wizards</b>
+                <b style={{color: "white", fontSize: "3.2rem"}}>{props.location.sportName}</b>
                 <p style={{color:"white", fontSize: "1.2rem"}}>28th December, 5:00pm</p>
 
                 {/* <img src="https://cdn.discordapp.com/attachments/804898083241459732/805267413125955594/unknown.png" style={{height: "50vh", width: "29.5vw", position:"absolute", bottom:"0", right:"0"}}></img> */}

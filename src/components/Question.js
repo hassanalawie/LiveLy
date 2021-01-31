@@ -10,7 +10,8 @@ function Question(props) {
   return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-                <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+                <a  style={{fontFamily:"Mulish", fontWeight:"800", color:"blue",
+            textDecoration:"none"}}>Switch</a>
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
         <div style={{display:"grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap:"15px 10px", marginTop:"20px"}} >
@@ -50,7 +51,8 @@ function Question(props) {
     return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-            <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+            <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue",
+            textDecoration:"none"}}>Switch</a>
 
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
@@ -93,7 +95,8 @@ function Question(props) {
     return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-            <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+            <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue",
+            textDecoration:"none"}}>Switch</a>
 
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
@@ -138,7 +141,8 @@ function Question(props) {
     return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-        <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+        <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue",
+            textDecoration:"none"}}>Switch</a>
 
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 

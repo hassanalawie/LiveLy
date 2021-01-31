@@ -1,7 +1,8 @@
 import Axios from 'axios';
 import Questions from './Questions';
 import {Link} from 'react-router-dom';
-import {useState, useEffect} from "react"
+import {useState, useEffect} from "react";
+import firebase from "../util/firebase"
 let styles = {
 
 
@@ -24,6 +25,10 @@ function KeywordsBasketball() {
         });
         
 }
+function DeleteQuestions() {
+    firebase.database().ref('CurrentEvent/').remove();
+}
+DeleteQuestions();
 GetQuestions();
 const [numberOfQuestions, setQuestions] = useState(5);
 
@@ -41,7 +46,7 @@ const [numberOfQuestions, setQuestions] = useState(5);
 
             </div>
             <div style={{marginTop: "5rem"}}>
-            <Link to={{pathname:'/questions', questionProps:{questions:questions}, numberOfQuestions: numberOfQuestions}} >
+            <Link to={{pathname:'/questions', questionProps:{questions:questions}, numberOfQuestions: numberOfQuestions, sport:70, sportName:"Basketball"}} >
                 <button style={{marginLeft: "11.2rem", border: "0", backgroundColor: "#FDB531", height: "3.5rem", width: "20rem", textAlign:"left", color: "white", borderRadius: "0.5rem"}}><span style={{marginLeft: "1rem", fontSize: "1.2rem"}} ><b>Generate Questions</b></span></button>
             </Link>
      
@@ -51,7 +56,7 @@ const [numberOfQuestions, setQuestions] = useState(5);
         </div>
         <div style={{backgroundColor: "#FDB531",  width: "30rem", height: "100vh", overflow: "hidden"}}>
         <div style={{marginLeft: "3.5rem", marginTop: "4rem"}}>
-            <b style={{color: "white", fontSize: "3.2rem"}}>Raptors @<br />Wizards</b>
+            <b style={{color: "white", fontSize: "3.2rem"}}>Basketball</b>
             <p style={{color:"white", fontSize: "1.2rem"}}>28th December, 5:00pm</p>
 
             <img src="https://cdn.discordapp.com/attachments/804898083241459732/805267413125955594/unknown.png" style={{height: "400px", width: "27em", position:"absolute", bottom:"0", right:"0"}}></img>

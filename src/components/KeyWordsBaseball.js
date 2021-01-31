@@ -1,6 +1,9 @@
 import Axios from 'axios';
+import Questions from './Questions';
 import {Link} from 'react-router-dom';
-import BaseballMan from '../baseballMan.png'
+import {useState, useEffect} from "react";
+import firebase from "../util/firebase"
+import baseballMan from "../baseballMan.png"
 let styles = {
 
 
@@ -8,20 +11,28 @@ let styles = {
 
 var questions=[];
 
-function GetQuestions() {
 
+
+
+function KeywordsBaseball() {
+    function GetQuestions() {
+        console.log("Button was pressed");
         Axios.get("https://jservice.io/api/category?id=2").then((r) => {
             r.data.clues.map(
                 res => {
                     questions.push(res);
                 }
             )
-        })
-
+        });
+        
 }
-
+function DeleteQuestions() {
+    firebase.database().ref('CurrentEvent/').remove();
+}
+DeleteQuestions();
 GetQuestions();
-function KeywordsBaseball() {
+const [numberOfQuestions, setQuestions] = useState(5);
+
   return (
     <div style={{display: "flex", flexDirection: "row", flex:1}}>
         <div style={{backgroundColor: "white", width: "70rem", height: "100vh"}}>
@@ -30,26 +41,26 @@ function KeywordsBaseball() {
                 <b style={{fontSize: "1.5rem", marginLeft: "1.2rem", marginTop: "0.5rem"}}>Live.ly</b>
             </div>
             <div style={{marginTop: "5rem", marginLeft: "10rem"}}>
-                <b style={{fontSize: "3rem", marginLeft: "1.2rem", marginTop: "0.5rem"}}>Enter <span style={{color: "#FDB531"}}>Key Words</span></b>
-                <p style={{fontSize: "1.3rem", marginLeft: "1.2rem", marginTop: "0.5rem", color: "#646464", marginTop: "2%"}}>Seperate key words with commas</p>
-                <input className="keywordInput" style={{marginLeft: "1.2rem", width: "35rem", borderBottomWidth: "0.1rem", borderBottomColor: "black", borderTopWidth: "0", borderLeftWidth: "0", borderRightWidth: "0", marginTop: "5%", height: "3rem", fontSize: "1.5rem"}} placeholder="Toronto Raptors, Kobe Bryant, Basketball"></input>
+                <b style={{fontSize: "3rem", marginLeft: "1.2rem", marginTop: "0.5rem"}}>Enter <span style={{color: "#FDB531"}}># of Questions</span></b>
+                <p style={{fontSize: "1.3rem", marginLeft: "1.2rem", marginTop: "0.5rem", color: "#646464", marginTop: "2%"}}>We will scan a RSS feed and automatically create questions for this trivia event!</p>
+                <input value={numberOfQuestions} onChange={(e) => {setQuestions(e.target.value); console.log(numberOfQuestions)}} className="keywordInput" type="Number" style={{marginLeft: "1.2rem", width: "35rem", borderBottomWidth: "0.1rem", borderBottomColor: "black", borderTopWidth: "0", borderLeftWidth: "0", borderRightWidth: "0", marginTop: "5%", height: "3rem", fontSize: "1.5rem"}} placeholder=""></input>
 
             </div>
             <div style={{marginTop: "5rem"}}>
-                <Link to={{pathname:'/questions', questionProps:{questions:questions} }}>
-                    <button style={{marginLeft: "11.2rem", border: "0", backgroundColor: "#FDB531", height: "3.5rem", width: "20rem", textAlign:"left", color: "white", borderRadius: "0.5rem"}}><span style={{marginLeft: "1rem", fontSize: "1.2rem"}} ><b>Generate Questions</b></span></button>
-                
-                </Link>
+            <Link to={{pathname:'/questions', questionProps:{questions:questions}, numberOfQuestions: numberOfQuestions, sport:40, sportName:"Baseball"}} >
+                <button style={{marginLeft: "11.2rem", border: "0", backgroundColor: "#FDB531", height: "3.5rem", width: "20rem", textAlign:"left", color: "white", borderRadius: "0.5rem"}}><span style={{marginLeft: "1rem", fontSize: "1.2rem"}} ><b>Generate Questions</b></span></button>
+            </Link>
+     
 
             </div>
             
         </div>
         <div style={{backgroundColor: "#FDB531",  width: "30rem", height: "100vh", overflow: "hidden"}}>
         <div style={{marginLeft: "3.5rem", marginTop: "4rem"}}>
-            <b style={{color: "white", fontSize: "3.2rem"}}>Baseball Game</b>
+            <b style={{color: "white", fontSize: "3.2rem"}}>Baseball</b>
             <p style={{color:"white", fontSize: "1.2rem"}}>28th December, 5:00pm</p>
 
-            <img src={BaseballMan} style={{height: "500px", width: "27em", position:"absolute", bottom:"0", right:"0"}}></img>
+            <img src={baseballMan} style={{height: "400px", width: "27em", position:"absolute", bottom:"0", right:"0"}}></img>
         </div>
         </div>
 
