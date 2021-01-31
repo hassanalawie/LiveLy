@@ -121,22 +121,29 @@ let styles = {
 }
 
 
+function sendItem(title) {
+    firebase.database().ref('CEventName/').update({
+        title:title ,
+    });
+    firebase.database().ref('CurrentEvent/').remove();
+}
 
  function Dashboard() {
     // const RSS_URL =  "https://news.demo.inception.cloud/inception/RunningOrder/RunningOrder.rss?id=3961";
     // fetch(RSS_URL).then(response => response.text())
     // .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
     // .then(data => console.log(data));
-    const [dataStuff, setData] = useState('');
+    const [dataStuff, setData] = useState([]);
      useEffect (async () => {
-        const Ref = firebase.database().ref('rss_feed');
+        const Ref = firebase.database().ref('rss_feed/');
         let data = {}
-        await Ref.once('value', (snapshot) => data = snapshot.val())
-        await setData(data);
-        console.log(dataStuff)
+        await Ref.once('value', async (snapshot) => await setData(snapshot.val()['-MSNRSW2awgpiqj42KF1'])).then((resp) => console.log(resp))
 
     }, [])
 
+    
+
+    console.log(dataStuff)
 
 
 
@@ -168,15 +175,15 @@ let styles = {
                 Events <span style={{color:"orange"}} >Incoming from RSS Feed</span>
             </h1>
             <div style={styles.eventGrid} >
-             {/* {Object.keys(dataStuff['-MSNRSW2awgpiqj42KF1']).map((notes, title, index,) => {
+             {dataStuff.map((current, index) => {
                  return (
-                    <a href="/keywordsbasketball" style={styles.eventBox} >
-                        <h1 style={{fontSize:"32px", fontWeight:"800", color:"white", textAlign:"left", fontFamily: "Mulish", }} >{title}</h1>
-                        <button style={{backgroundColor: "#FFD890", padding: "0.5rem 2rem", color: "black",  fontFamily: "Mulish", border: "0", borderRadius: 25,}}><span style={{fontSize: "0.65rem"}}>Go Live</span></button>
+                    <a href="#" style={styles.eventBox} >
+                        <h1 style={{fontSize:"26px", fontWeight:"800", color:"white", textAlign:"left", fontFamily: "Mulish", }} >{current.title.toUpperCase()[0]}{current.title.toLowerCase().substring(1,)}</h1>
+                        <button onClick={() =>  sendItem(current.title)} style={{backgroundColor: "#FFD890", padding: "0.5rem 2rem", color: "black",  fontFamily: "Mulish", border: "0", borderRadius: 25,}}><span style={{fontSize: "0.65rem"}}>Go Live</span></button>
                     </a>
                  )
-             })} */}
-             {dataStuff['-MSNRSW2awgpiqj42KF1']['notes']}
+             })}
+             {/* {dataStuff['-MSNRSW2awgpiqj42KF1'].title} */}
                 <a href="/keywordsbasketball" style={styles.eventBox} >
                     <h1 style={{fontSize:"32px", fontWeight:"800", color:"white", textAlign:"left", fontFamily: "Mulish", }} >Heads - Whitaker</h1>
                     <button style={{backgroundColor: "#FFD890", padding: "0.5rem 2rem", color: "black",  fontFamily: "Mulish", border: "0", borderRadius: 25,}}><span style={{fontSize: "0.65rem"}}>Go Live</span></button>
