@@ -1,9 +1,12 @@
-import React from "react";
 import logo from '../logo.png';
 import beal from '../beal.png';
 import OBJ from '../OBJ.png';
 import baseballMan from '../baseballMan.png';
 import SignUp from './SignUp';
+import firebase from "../util/firebase"
+import React, {useEffect, useState} from 'react';
+
+
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaQuestion } from "react-icons/fa";
@@ -80,7 +83,7 @@ let styles = {
         gridGap:"3rem 4rem",
     },
     eventBox:{
-        height:"155px",
+        height:"150px",
         width:"360px",
         backgroundColor:"#FDB531",
         borderRadius:"10px",
@@ -119,11 +122,24 @@ let styles = {
 
 
 
-function SignIn() {
+ function Dashboard() {
     // const RSS_URL =  "https://news.demo.inception.cloud/inception/RunningOrder/RunningOrder.rss?id=3961";
     // fetch(RSS_URL).then(response => response.text())
     // .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
     // .then(data => console.log(data));
+    const [dataStuff, setData] = useState('');
+     useEffect (async () => {
+        const Ref = firebase.database().ref('rss_feed');
+        let data = {}
+        await Ref.once('value', (snapshot) => data = snapshot.val())
+        await setData(data);
+        console.log(dataStuff)
+
+    }, [])
+
+
+
+
   return (
     <div style={styles.container}>
         <div style={styles.sidebar} >
@@ -149,15 +165,21 @@ function SignIn() {
         </div>
         <div style={styles.dashboard} >
             <h1 style={{textAlign:"left", fontSize:"36px", fontFamily: "Mulish",}}>
-                Events <span style={{color:"orange"}} >Today</span>
+                Events <span style={{color:"orange"}} >Incoming from RSS Feed</span>
             </h1>
             <div style={styles.eventGrid} >
-                
-                
+             {/* {Object.keys(dataStuff['-MSNRSW2awgpiqj42KF1']).map((notes, title, index,) => {
+                 return (
+                    <a href="/keywordsbasketball" style={styles.eventBox} >
+                        <h1 style={{fontSize:"32px", fontWeight:"800", color:"white", textAlign:"left", fontFamily: "Mulish", }} >{title}</h1>
+                        <button style={{backgroundColor: "#FFD890", padding: "0.5rem 2rem", color: "black",  fontFamily: "Mulish", border: "0", borderRadius: 25,}}><span style={{fontSize: "0.65rem"}}>Go Live</span></button>
+                    </a>
+                 )
+             })} */}
+             {dataStuff['-MSNRSW2awgpiqj42KF1']['notes']}
                 <a href="/keywordsbasketball" style={styles.eventBox} >
-                    <h1 style={{fontSize:"32px", fontWeight:"800", color:"white", textAlign:"left", fontFamily: "Mulish", }} >Raptors <br></br> @ Wizards</h1>
-                    <p style={{fontSize:"14px", fontWeight:"400", color:"white",textAlign:"left", fontFamily: "Mulish", }} >Today, 5:00pm</p>
-                     <img src={beal} style={{position:"absolute",bottom:"0", right:"0", width:"180px", height:"150px"}} />
+                    <h1 style={{fontSize:"32px", fontWeight:"800", color:"white", textAlign:"left", fontFamily: "Mulish", }} >Heads - Whitaker</h1>
+                    <button style={{backgroundColor: "#FFD890", padding: "0.5rem 2rem", color: "black",  fontFamily: "Mulish", border: "0", borderRadius: 25,}}><span style={{fontSize: "0.65rem"}}>Go Live</span></button>
                 </a>
                 
                 <a href="/keywordsbasketball"  style={styles.eventBox} >
@@ -197,4 +219,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Dashboard;
