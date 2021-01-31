@@ -13,7 +13,8 @@
 </p>
 
 ## About The Project
-
+This is the producer-side version of the app. 
+This allows producers to generate quesitons in real-time, and allows them to customize the number of questions in the game
 Upgrade from your traditional methods and keep viewership at all time highs with this fun trivia app
 
 Here's why our app is the optimal choice for your television production workflow:
