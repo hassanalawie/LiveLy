@@ -1,14 +1,51 @@
 import logo from '../logo.png';
 import Question from './Question';
 import React, {useEffect, useState} from 'react';
+import firebase from "../util/firebase"
 let styles = {
 
 
 }
 
+function genNum(lim) {
+  return Math.floor((Math.random() * 70) + 1);
+}
+
+function pushFirebase(qu, all) {
+  const ref = firebase.database().ref('CurrentEvent/Questions');
+  let a = all.length - 1
+  let b = Math.floor((Math.random() * 70) + 1);
+  let p = []
+  while (p.length <= 3) {
+    let c = genNum(a)
+    if (!p.includes(c)) {
+      p.push(c)
+    }
+  }
+  let h = all[p[2]].answer
+  let g = all[p[1]].answer
+
+  let questionGiven = {
+    question: qu.question,
+    answer: qu.answer,
+    optionB: all[p[0]].answer,
+    optionC: g,
+    optionD: h,
+  }
+
+  ref.push(questionGiven)
+  
+  }
 
 
+
+
+
+
+var b = 0
 function Questions(props) {
+
+  
   return (
     <div style={{display: "flex", flexDirection: "row", flex:1}}>
         <div style={{backgroundColor: "white", width: "70vw", height: "100vh"}}>
@@ -19,11 +56,14 @@ function Questions(props) {
                 <p style={{fontSize: "3rem", marginLeft: "1.2rem", marginTop: "5rem", fontFamily:"Mulish", fontWeight:"800", textAlign:"left"}}>Questions <span style={{color: "#FDB531"}}>Generated </span></p>
             {
             
-             shuffle(props.location.questionProps.questions).slice(0, 5).map(
+             shuffle(props.location.questionProps.questions).slice(0, props.location.numberOfQuestions).map(
                     e => {
-                    
+                        {pushFirebase(e, props.location.questionProps.questions)}
+                        {b=1}
+
                         return( 
-                            <Question questionList = {props.location.questionProps.questions} question = {e} number={1} />
+                            <Question questionList = {props.location.questionProps.questions} question={e} number={b} /> 
+
                         )
                     }
 
@@ -37,7 +77,7 @@ function Questions(props) {
 
 
 
-        <div style={{backgroundColor: "#FDB531",  width: "30vw", height: "200vh", overflow: "hidden", position:"sticky", top:0}}>
+        <div style={{backgroundColor: "#FDB531",  width: "30vw", height: "40vh", position:"-webkit-sticky", top:0}}>
             <div style={{marginLeft: "3.5rem", marginTop: "4rem"}}>
                 <b style={{color: "white", fontSize: "3.2rem"}}>Raptors @<br />Wizards</b>
                 <p style={{color:"white", fontSize: "1.2rem"}}>28th December, 5:00pm</p>

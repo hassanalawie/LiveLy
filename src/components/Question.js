@@ -10,9 +10,7 @@ function Question(props) {
   return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-            <div style={{height:"32px",width:"32px", border:"1px solid #FDB531", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"10px"}}>
-                <p style={{fontFamily:"Mulish", fontWeight:"800", color:"#FDB531"}}>{props.number}</p>
-            </div>
+                <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
         <div style={{display:"grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap:"15px 10px", marginTop:"20px"}} >
@@ -52,9 +50,8 @@ function Question(props) {
     return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-            <div style={{height:"32px",width:"32px", border:"1px solid #FDB531", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"10px"}}>
-                <p style={{fontFamily:"Mulish", fontWeight:"800", color:"#FDB531"}}>{props.number}</p>
-            </div>
+            <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
         <div style={{display:"grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap:"15px 10px", marginTop:"20px"}} >
@@ -96,9 +93,8 @@ function Question(props) {
     return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-            <div style={{height:"32px",width:"32px", border:"1px solid #FDB531", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"10px"}}>
-                <p style={{fontFamily:"Mulish", fontWeight:"800", color:"#FDB531"}}>{props.number}</p>
-            </div>
+            <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
         <div style={{display:"grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap:"15px 10px", marginTop:"20px"}} >
@@ -142,9 +138,8 @@ function Question(props) {
     return (
         <div style={{height:"235px", width:"600px", display:"flex", flexDirection:"column", padding:"10px"}} > 
         <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-            <div style={{height:"32px",width:"32px", border:"1px solid #FDB531", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"10px"}}>
-                <p style={{fontFamily:"Mulish", fontWeight:"800", color:"#FDB531"}}>{props.number}</p>
-            </div>
+        <a href="#" style={{fontFamily:"Mulish", fontWeight:"800", color:"blue"}}>Switch</a>
+
             <p style={{ marginLeft:"2rem" }} >{props.question.question}</p>
         </div> 
         <div style={{display:"grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap:"15px 10px", marginTop:"20px"}} >

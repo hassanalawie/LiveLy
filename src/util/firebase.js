@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 var firebaseConfig = {
     apiKey: "AIzaSyA5WLzSyEhtzwqHCCq_bYHyz8RUT5qHE4E",
     authDomain: "lively-rtd.firebaseapp.com",
@@ -10,4 +11,5 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+
+  export default firebase;
