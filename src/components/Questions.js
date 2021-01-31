@@ -24,11 +24,12 @@ function pushFirebase(qu, all) {
   }
   let h = all[p[2]].answer
   let g = all[p[1]].answer
+  let i = all[p[0]].answer
 
   let questionGiven = {
     question: qu.question,
     answer: qu.answer,
-    optionB: all[p[0]].answer,
+    optionB: i,
     optionC: g,
     optionD: h,
   }
