@@ -1,6 +1,7 @@
 import React from "react";
 import logo from '../logo1.png';
 import SignUp from './SignUp';
+import {Link} from 'react-router-dom';
 
 let styles = {
     container: {
@@ -69,8 +70,12 @@ function SignIn() {
         <form style = {styles.loginForm}>
           <input placeholder="Username" type="text" style={styles.emailInput}/>
           <input placeholder="Password" type="text" style={styles.emailInput}/>
-          <input value="Login" type="submit" style={styles.loginSubmit}/>
-          <input value="Create Account" type="submit" style={styles.createAccountSubmit} onClick="{SignUp}"/>
+          <Link to="/dashboard" >
+            <input value="Login" type="submit" style={styles.loginSubmit}/>
+          </Link>
+          <Link to="/signup" >
+            <input value="Create Account" type="submit" style={styles.createAccountSubmit} />
+          </Link>
       </form>
     </div>
   );

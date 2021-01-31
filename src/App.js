@@ -1,11 +1,16 @@
 
 import './App.css';
-import SignIn from './components/SignIn.js';
+import Axios from 'axios';
+import React from 'react';
+import { Router } from 'react-router-dom';
+import history from './services/history';
+import Routes from './Routes';
+
 function App() {
   return (
-    <div className="App">
-      <SignIn/>
-    </div>
+    <Router history={history}>
+      <Routes />
+    </Router>
   );
 }
 
